@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Navigate } from "react-router";
 
 class RegisterForm extends Component {
 	constructor(props) {
@@ -29,9 +30,21 @@ class RegisterForm extends Component {
 			},
 			body: JSON.stringify(user),
 		})
-			.then((response) => response.json())
+			.then((response) => {
+				if (response.status === 201) {
+					// Registration was successful, navigate to the login page
+					window.location.href = <Navigate replace to="/login" />; // Use the appropriate URL for your login page
+				} else {
+					return response.json();
+				}
+			})
 			.then((data) => {
-				console.log(data);
+				if (data) {
+					console.log(data); // Handle registration errors, e.g., display error messages
+				}
+			})
+			.catch((error) => {
+				console.error("There was an error:", error);
 			});
 	};
 
