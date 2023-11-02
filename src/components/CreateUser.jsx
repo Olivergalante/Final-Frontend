@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Navigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 
 class RegisterForm extends Component {
 	constructor(props) {
@@ -18,6 +18,8 @@ class RegisterForm extends Component {
 
 	handleSubmit = (event) => {
 		event.preventDefault();
+		const navigatae = useNavigate();
+
 		const user = {
 			username: this.state.username,
 			email: this.state.email,
@@ -30,21 +32,9 @@ class RegisterForm extends Component {
 			},
 			body: JSON.stringify(user),
 		})
-			.then((response) => {
-				if (response.status === 201) {
-					// Registration was successful, navigate to the login page
-					window.location.href = <Navigate replace to="/login" />; // Use the appropriate URL for your login page
-				} else {
-					return response.json();
-				}
-			})
+			.then((response) => response.json())
 			.then((data) => {
-				if (data) {
-					console.log(data); // Handle registration errors, e.g., display error messages
-				}
-			})
-			.catch((error) => {
-				console.error("There was an error:", error);
+				console.log(data);
 			});
 	};
 
@@ -89,7 +79,13 @@ class RegisterForm extends Component {
 						/>
 					</div>
 
-					<button className="btn btn-primary" type="submit">
+					<button
+						className="btn btn-primary"
+						type="submit"
+						onClick={() => {
+							navigatae("/login");
+						}}
+					>
 						Register
 					</button>
 				</form>
