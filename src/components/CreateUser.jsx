@@ -84,7 +84,7 @@ export function CreateUser() {
 				</button>
 			</form>
 			<p className="text-center">
-				If you already have an account, <a href="./Login">login</a> instead.
+				If you already have an account, <a href="/Login">login</a> instead.
 			</p>
 		</div>
 	);
