@@ -36,7 +36,7 @@ export function LoginForm() {
 
 	return (
 		<>
-			<h3> Login Form : </h3>
+			<h3> Login </h3>
 			<form onSubmit={handleSubmit}>
 				<label>
 					Username
@@ -58,7 +58,7 @@ export function LoginForm() {
 				</label>
 				<button type="submit">Login</button>
 				<p className="text-center">
-					If you don't have an account, <a href="/">register </a>
+					If you don't have an account, <a href="/createuser">register </a>
 					instead.
 				</p>
 			</form>

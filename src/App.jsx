@@ -7,8 +7,8 @@ export function App() {
 	return (
 		<Router>
 			<Routes>
-				<Route path="/login" element={<LoginForm />} />
-				<Route path="/" element={<CreateUser />} />
+				<Route path="/" element={<LoginForm />} />
+				<Route path="/createuser" element={<CreateUser />} />
 				<Route path="/mainpage" element={<MainPage />} />
 			</Routes>
 		</Router>
