@@ -57,6 +57,10 @@ export function LoginForm() {
 					/>
 				</label>
 				<button type="submit">Login</button>
+				<p className="text-center">
+					If you don't have an account, <a href="/">register </a>
+					instead.
+				</p>
 			</form>
 		</>
 	);
