@@ -19,7 +19,7 @@ export function LoginForm() {
 			password,
 		};
 		console.log(user);
-		const url = "http://localhost:8000/token/";
+		const url = "http://localhost:8000/login/";
 		const data = await fetch(url, {
 			method: "POST",
 			headers: {
