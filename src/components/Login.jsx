@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export function LoginForm() {
 	const [username, setUserName] = useState("");
@@ -11,6 +12,7 @@ export function LoginForm() {
 	const handleChangePassword = (e) => {
 		setPassword(e.target.value);
 	};
+	const navigate = useNavigate();
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -26,16 +28,24 @@ export function LoginForm() {
 				"Content-Type": "application/json",
 			},
 			body: JSON.stringify(user),
-		}).then((response) => response.json());
+		})
+			.then((response) => response.json())
+			.then((data) => {
+				const { access, refresh } = data;
+				localStorage.clear();
+				localStorage.setItem("access_token", access);
+				localStorage.setItem("refresh_token", refresh);
+				localStorage.setItem("username", username);
+				localStorage.setItem("password", password);
+				// Navigate to the main page after a successful login
+				navigate("/mainpage");
+			});
 
-		const { access, refresh } = data;
-		localStorage.clear();
-		localStorage.setItem("access_token", access);
-		localStorage.setItem("refresh_token", refresh);
+		return data;
 	};
 
 	return (
-		<>
+		<div className="login-form">
 			<h3> Login </h3>
 			<form onSubmit={handleSubmit}>
 				<label>
@@ -58,10 +68,10 @@ export function LoginForm() {
 				</label>
 				<button type="submit">Login</button>
 				<p className="text-center">
-					If you don't have an account, <a href="/createuser">register </a>
+					If you don't have an account, <a href="/createuser">register</a>{" "}
 					instead.
 				</p>
 			</form>
-		</>
+		</div>
 	);
 }

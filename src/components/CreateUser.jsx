@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export function CreateUser() {
 	const [formData, setFormData] = useState({
@@ -16,6 +17,7 @@ export function CreateUser() {
 	};
 
 	const handleSubmit = (event) => {
+		const navigate = useNavigate();
 		event.preventDefault();
 		const user = {
 			username: formData.username,
@@ -32,15 +34,13 @@ export function CreateUser() {
 		})
 			.then((response) => response.json())
 			.then((data) => {
+				navigate("/");
 				console.log(data);
 			});
-
-		// You can use the navigation logic for functional components, e.g., useNavigate
-		// Example: navigate("/login");
 	};
 
 	return (
-		<div className="container py-5">
+		<div className="register-form">
 			<h1>Register</h1>
 			<form onSubmit={handleSubmit}>
 				<div className="form-group">
