@@ -35,8 +35,6 @@ export function LoginForm() {
 				localStorage.clear();
 				localStorage.setItem("access_token", access);
 				localStorage.setItem("refresh_token", refresh);
-				localStorage.setItem("username", username);
-				localStorage.setItem("password", password);
 				// Navigate to the main page after a successful login
 				navigate("/mainpage");
 			});
@@ -45,7 +43,7 @@ export function LoginForm() {
 	};
 
 	return (
-		<div className="login-form">
+		<div className="form">
 			<h3> Login </h3>
 			<form onSubmit={handleSubmit}>
 				<label>

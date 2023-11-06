@@ -2,27 +2,26 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export function CreateUser() {
-	const [formData, setFormData] = useState({
+	const [userData, setUserData] = useState({
 		username: "",
 		email: "",
 		password: "",
 	});
-
+	const navigate = useNavigate();
 	const handleInputChange = (event) => {
 		const { name, value } = event.target;
-		setFormData({
-			...formData,
+		setUserData({
+			...userData,
 			[name]: value,
 		});
 	};
 
-	const handleSubmit = (event) => {
-		const navigate = useNavigate();
+	const handleSubmit = async (event) => {
 		event.preventDefault();
 		const user = {
-			username: formData.username,
-			email: formData.email,
-			password: formData.password,
+			username: userData.username,
+			email: userData.email,
+			password: userData.password,
 		};
 
 		fetch("http://127.0.0.1:8000/register/", {
@@ -40,7 +39,7 @@ export function CreateUser() {
 	};
 
 	return (
-		<div className="register-form">
+		<div className="form">
 			<h1>Register</h1>
 			<form onSubmit={handleSubmit}>
 				<div className="form-group">
@@ -49,7 +48,7 @@ export function CreateUser() {
 						type="text"
 						id="username"
 						name="username"
-						value={formData.username}
+						value={userData.username}
 						onChange={handleInputChange}
 						className="form-control"
 					/>
@@ -61,7 +60,7 @@ export function CreateUser() {
 						type="email"
 						id="email"
 						name="email"
-						value={formData.email}
+						value={userData.email}
 						onChange={handleInputChange}
 						className="form-control"
 					/>
@@ -73,7 +72,7 @@ export function CreateUser() {
 						type="password"
 						id="password"
 						name="password"
-						value={formData.password}
+						value={userData.password}
 						onChange={handleInputChange}
 						className="form-control"
 					/>
