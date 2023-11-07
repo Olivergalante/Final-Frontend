@@ -21,7 +21,7 @@ export function LoginForm() {
 			password,
 		};
 		console.log(user);
-		const url = "http://localhost:8000/login/";
+		const url = "http://localhost:8000/token/";
 		const data = await fetch(url, {
 			method: "POST",
 			headers: {
@@ -31,8 +31,14 @@ export function LoginForm() {
 		})
 			.then((response) => response.json())
 			.then((data) => {
-				const { access, refresh } = data;
+				const { access, refresh, userId } = data;
+
+				console.log({ data });
+				console.log(access);
+				console.log(refresh);
 				localStorage.clear();
+				localStorage.setItem("username", username);
+				localStorage.setItem("userId", userId);
 				localStorage.setItem("access_token", access);
 				localStorage.setItem("refresh_token", refresh);
 				// Navigate to the main page after a successful login
