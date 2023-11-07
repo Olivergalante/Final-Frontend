@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { CreateUser } from "./components/CreateUser";
-import { LoginForm } from "./components/Login";
-import { MainPage } from "./components/Mainpage";
-import { Errorpage } from "./components/Errorpage";
+import { CreateUser } from "./CreateUser";
+import { LoginForm } from "./Login";
+import { MainPage } from "../Maincontent/Mainpage";
+import { Errorpage } from "./Errorpage";
 
 export function App() {
 	return (

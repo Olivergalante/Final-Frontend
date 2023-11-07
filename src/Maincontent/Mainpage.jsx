@@ -1,7 +1,7 @@
 import React from "react";
-import Profile from "../Maincontent/Profile";
-import Content from "../Maincontent/Content";
-import "../Maincontent/mainpage.css";
+import Profile from "./Profile";
+import Content from "./Content";
+import "./Content.css";
 
 export function MainPage() {
 	return (
