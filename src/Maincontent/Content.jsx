@@ -24,11 +24,20 @@ function MainPage() {
 			{isLoading ? (
 				<p>Loading...</p>
 			) : (
-				<ul>
-					{posts.map((post) => (
-						<li key={post.id}>{post.content}</li>
-					))}
-				</ul>
+				<div className="blog-post">
+					<ul>
+						{posts.map((post) => (
+							<li key={post.id}>
+								<h2>{post.title}</h2>
+								<p>{post.content}</p>
+								<div>
+									<span>Author: {post.author}</span>
+									<span>Created Date: {post.created_at}</span>
+								</div>
+							</li>
+						))}
+					</ul>
+				</div>
 			)}
 		</div>
 	);
