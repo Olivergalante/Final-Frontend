@@ -22,6 +22,7 @@ const Profile = () => {
 					{/* Add more profile information here */}
 				</div>
 			)}
+			<button className="post-blog-button"> Post </button>
 		</div>
 	);
 };

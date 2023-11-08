@@ -30,18 +30,16 @@ function MainPage() {
 				<p>Loading...</p>
 			) : (
 				<div className="blog-post">
-					<ul>
-						{posts.map((post) => (
-							<li key={post.id}>
-								<h2>{post.title}</h2>
-								<p>{post.content}</p>
-								<div>
-									<span>{post.author} </span>
-									<span> Date:{formatDate(post.created_at)}</span>
-								</div>
-							</li>
-						))}
-					</ul>
+					{posts.map((post) => (
+						<div key={post.id} className="post-card">
+							<h2>{post.title}</h2>
+							<p>{post.content}</p>
+							<div>
+								<span>{post.author} </span>
+								<span>Date: {formatDate(post.created_at)}</span>
+							</div>
+						</div>
+					))}
 				</div>
 			)}
 		</div>

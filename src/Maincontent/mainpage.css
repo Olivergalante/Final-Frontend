@@ -20,14 +20,25 @@
   border-bottom: 1px solid #fafafa;
 }
 
-.blog-post:hover {
+.post-card {
+  width: 100%;
+  border-bottom: black 1px solid;
+  margin-bottom: 5px;
+}
+
+.post-card:hover {
   box-shadow: 1px 3px 5px;
+  background-color: lightgray;
 }
 
 .blog-post h2 {
   font-size: 20px;
-  color: #f1356d;
+  color: #007bff;
   margin-bottom: 8px;
+}
+
+.blog-post h2:hover {
+  color: #f1356d;
 }
 
 /* layout for the main page  */
@@ -39,6 +50,7 @@
   /* Adjust the gap between columns as needed */
   height: 100vh;
   /* Set the height of the grid to 100% of the viewport height */
+  outline: black;
 }
 
 /* Style for the profile column (left side) */
@@ -55,4 +67,37 @@
   background-color: #ffffff;
   margin-left: 250px;
   /* Adjust the margin to match the width of the profile column */
+}
+
+.profile-section {
+  text-align: center;
+  border-right: black 2px solid;
+  border-radius: 2px;
+}
+
+.post-blog-button {
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+.post-blog-button:hover {
+  background-color: #f1356d;
+  color: white;
+}
+
+.post-blog-button {
+  background-color: #007bff;
+  /* Background color */
+  color: #fff;
+  /* Text color */
+  border: none;
+  /* Remove the button border */
+  padding: 10px 20px;
+  /* Add padding for better appearance */
+  border-radius: 5px;
+  /* Rounded corners */
+  cursor: pointer;
+  /* Show a pointer cursor on hover */
+  transition: background-color 0.3s;
+  /* Add a smooth transition effect */
 }
