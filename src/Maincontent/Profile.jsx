@@ -1,5 +1,6 @@
 // Profile.js
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Profile = () => {
 	const [userData, setUserData] = useState(null);
@@ -22,7 +23,9 @@ const Profile = () => {
 					{/* Add more profile information here */}
 				</div>
 			)}
-			<button className="post-blog-button"> Post </button>
+			<Link to="/createpost">
+				<button className="post-blog-button"> Post </button>
+			</Link>
 		</div>
 	);
 };
