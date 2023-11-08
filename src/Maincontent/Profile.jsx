@@ -15,7 +15,7 @@ const Profile = () => {
 	}, [userId]); // Only re-run this effect if the userId changes
 
 	return (
-		<div className="profile-section" style={{ width: "25%" }}>
+		<div className="profile-section">
 			{userData && (
 				<div className="profile-user-name">
 					<h1>Hello {userName}</h1>

@@ -5,9 +5,9 @@ import "./mainpage.css";
 
 export function MainPage() {
 	return (
-		<>
+		<div className="main-page-wrapper">
 			<Profile />
 			<Content />
-		</>
+		</div>
 	);
 }
