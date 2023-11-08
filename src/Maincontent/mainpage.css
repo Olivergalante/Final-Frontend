@@ -1,19 +1,32 @@
 /* Styling for the Main page and profile page! */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: "Quicksand";
 }
 
 .blog-post {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 2px solid black;
-  width: 50%;
-  margin: 0 auto;
+  width: 100%;
   background-color: white;
   color: black;
   border-radius: 5%;
+  padding: 10px 16px;
+  margin: 20px 0;
+  border-bottom: 1px solid #fafafa;
+}
+
+.blog-post:hover {
+  box-shadow: 1px 3px 5px;
+}
+
+.blog-post h2 {
+  font-size: 20px;
+  color: #f1356d;
+  margin-bottom: 8px;
 }

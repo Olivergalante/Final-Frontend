@@ -18,6 +18,12 @@ function MainPage() {
 			});
 	}, []);
 
+	// Function to format the date
+	const formatDate = (dateString) => {
+		const options = { year: "numeric", month: "short", day: "numeric" };
+		return new Date(dateString).toLocaleDateString(undefined, options);
+	};
+
 	return (
 		<div>
 			{isLoading ? (
@@ -30,8 +36,8 @@ function MainPage() {
 								<h2>{post.title}</h2>
 								<p>{post.content}</p>
 								<div>
-									<span>Author: {post.author}</span>
-									<span>Created Date: {post.created_at}</span>
+									<span>{post.author} </span>
+									<span> Date:{formatDate(post.created_at)}</span>
 								</div>
 							</li>
 						))}
