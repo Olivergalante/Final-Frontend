@@ -6,6 +6,7 @@ const CreatePost = () => {
 
 	const handlePost = () => {
 		const userId = localStorage.getItem("userId"); // Get the userId from local storage
+		const userName = localStorage.getItem("username"); // Get the username from local storage
 		const endpoint = "http://127.0.0.1:8000/posts/";
 
 		// Define the data you want to send in the request
