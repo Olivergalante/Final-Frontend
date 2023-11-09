@@ -5,8 +5,7 @@ import { Link } from "react-router-dom";
 const Profile = () => {
 	const [userData, setUserData] = useState(null);
 	const userId = localStorage.getItem("userId"); // Get the userId from local storage
-	const userName = localStorage.getItem("username"); // Get the username from local storage
-
+	const userName = localStorage.getItem("username"); // Get the userName from local storage
 	useEffect(() => {
 		const url = `http://127.0.0.1:8000/profiles/${userId}`; // Make a GET request to your API endpoint with the userId
 		fetch(url)

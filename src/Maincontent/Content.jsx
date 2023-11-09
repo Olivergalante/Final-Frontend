@@ -35,7 +35,7 @@ function MainPage() {
 							<h2>{post.title}</h2>
 							<p>{post.content}</p>
 							<div>
-								<span>{post.author} </span>
+								<span>{post.username} </span>
 								<span>Date: {formatDate(post.created_at)}</span>
 							</div>
 						</div>
