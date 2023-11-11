@@ -14,7 +14,6 @@ function MainPage() {
 			.then((data) => {
 				setPosts(data); // Update the state with the retrieved posts
 				setIsLoading(false); // Mark loading as complete
-				console.log(data);
 			})
 			.catch((error) => {
 				console.error("Error fetching data:", error);
@@ -27,7 +26,6 @@ function MainPage() {
 		const options = { year: "numeric", month: "short", day: "numeric" };
 		return new Date(dateString).toLocaleDateString(undefined, options);
 	};
-	console.log(posts);
 	return (
 		<div className="blog-post-rendered">
 			{isLoading ? (
@@ -36,20 +34,24 @@ function MainPage() {
 				// Where post is published
 				<div className="blog-post">
 					{posts.map((post) => (
-						<div key={post.id} className="post-card">
-							<h2>
-								<Link to={`/posts/${post.id}`}>{post.title}</Link>
-							</h2>
-							{post.image && (
-								<img className="post-image" src={post.image} alt={post.title} />
-							)}
-							<p>{post.content}</p>
+						<Link to={`/posts/${post.id}`} key={post.id} className="post-link">
+							<div className="post-card">
+								<h2>{post.title}</h2>
+								{post.image && (
+									<img
+										className="post-image"
+										src={post.image}
+										alt={post.title}
+									/>
+								)}
+								<p>{post.content}</p>
 
-							<div>
-								<span>{post.username} </span>
-								<span>Date: {formatDate(post.created_at)}</span>
+								<div>
+									<span>{post.username} </span>
+									<span>Date: {formatDate(post.created_at)}</span>
+								</div>
 							</div>
-						</div>
+						</Link>
 					))}
 				</div>
 			)}

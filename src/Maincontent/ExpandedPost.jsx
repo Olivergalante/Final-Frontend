@@ -32,15 +32,17 @@ const ExpandedPost = () => {
 	}
 
 	return (
-		<div className="expanded-post">
-			<h2>{post.title}</h2>
-			{post.image && (
-				<img src={post.image} alt={post.title} className="expanded-image" />
-			)}
-			<p>{post.content}</p>
-			<div>
-				<span>{post.username} </span>
-				<span>Date: {new Date(post.created_at).toLocaleDateString()}</span>
+		<div className="expanded-post-container">
+			<div className="expanded-post">
+				<h2>{post.title}</h2>
+				{post.image && (
+					<img src={post.image} alt={post.title} className="expanded-image" />
+				)}
+				<p>{post.content}</p>
+				<div className="post-details">
+					<span>{post.username} </span>
+					<span>Date: {new Date(post.created_at).toLocaleDateString()}</span>
+				</div>
 			</div>
 		</div>
 	);

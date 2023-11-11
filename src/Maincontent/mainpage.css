@@ -21,7 +21,7 @@
 }
 
 .post-card {
-  width: 100%;
+  width: 650px;
   border-bottom: black 1px solid;
   margin-bottom: 5px;
   border-radius: 2%;
@@ -108,7 +108,9 @@
   /* Adjust the margin to match the width of the profile column */
 }
 
-
+.post-link {
+  text-decoration: none;
+}
 
 /* styles for the create a post page !!! */
 body {
@@ -190,4 +192,35 @@ body {
 .post-image {
   height: 100px;
   width: 100px;
+}
+
+/* EXPANDED POST STYLES BELOW ! */
+.expanded-post-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  /* Adjust the height as needed */
+}
+
+.expanded-post {
+  text-align: center;
+  background-color: lightgrey;
+  border-radius: 4px;
+  width: 436px;
+  cursor: pointer;
+}
+
+.expanded-image {
+  display: block;
+  margin: 0 auto;
+  width: 300px;
+  height: 300px;
+  margin-bottom: 15px;
+  /* Ensure the image doesn't exceed its natural size */
+}
+
+.post-details {
+  margin-top: 10px;
+  /* Adjust the margin as needed */
 }

@@ -40,9 +40,9 @@ export function CreateUser() {
 
 	return (
 		<div className="form">
-			<h1>Register</h1>
+			<h2>Register</h2>
 			<form onSubmit={handleSubmit}>
-				<div className="form-group">
+				<div className="form-group-username">
 					<label htmlFor="username">Username</label>
 					<input
 						type="text"
@@ -54,7 +54,7 @@ export function CreateUser() {
 					/>
 				</div>
 
-				<div className="form-group">
+				<div className="form-group-email">
 					<label htmlFor="email">Email</label>
 					<input
 						type="email"

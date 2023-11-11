@@ -1,17 +1,65 @@
 /* styling for the login page and create user page */
 /* This page styles all of the log in and create user pages */
 
-button {
-  background-color: #f9f9f9;
+/* styling for the login page and create user page */
+/* This page styles all of the log in and create user pages */
+
+
+.form {
+  width: 300px;
+  /* Adjust the width as needed */
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  /* Center the text inside the form */
+  margin: 0 auto;
+  /* Center the form horizontally */
 }
 
-/* both login form and creat user form are being styled here */
-.form {
+form {
   display: flex;
   flex-direction: column;
-  align-items: center;
+}
+
+h2 {
+  margin-bottom: 15px;
+  /* Add margin to the bottom of h3 for spacing */
+}
+
+label {
+  margin-bottom: 10px;
+}
+
+input {
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+button {
+  padding: 10px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.text-center {
+  text-align: center;
 }
 
 .profile-user-name {
   margin-top: 15px;
+}
+
+.form-group-email {
+  margin-left: 33px;
 }
