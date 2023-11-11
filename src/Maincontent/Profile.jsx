@@ -1,6 +1,7 @@
-// Profile.js
+// Profile.js Where the username and post button to the post page are displayed !
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import ExpandedPost from "./ExpandedPost";
 
 const Profile = () => {
 	const [userData, setUserData] = useState(null);
@@ -15,11 +16,11 @@ const Profile = () => {
 	}, [userId]); // Only re-run this effect if the userId changes
 
 	return (
+		// Here is where the User name is displayed
 		<div className="profile-section">
 			{userData && (
 				<div className="profile-user-name">
 					<h1>Hello {userName}</h1>
-					{/* Add more profile information here */}
 				</div>
 			)}
 			<Link to="/createpost">

@@ -1,3 +1,4 @@
+// where the title and content of the post are being created. Now has section for images !!
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -31,7 +32,7 @@ const CreatePost = () => {
 			.then((response) => response.json())
 			.then((data) => {
 				console.log(data);
-				// navigate("/mainpage");
+				navigate("/mainpage");
 			})
 			.catch((error) => {
 				console.error("Error:", error);
@@ -46,6 +47,7 @@ const CreatePost = () => {
 		<div className="new-post-section">
 			<h1 className="header">Create New Post</h1>
 			<input
+				// Title name
 				className="input-title"
 				type="text"
 				placeholder="Title"
@@ -53,21 +55,24 @@ const CreatePost = () => {
 				onChange={(e) => setTitle(e.target.value)}
 			/>
 			<textarea
+				// Content for the new post
 				className="input-content"
 				placeholder="Content"
 				value={content}
 				onChange={(e) => setContent(e.target.value)}
 			/>
 			<input
+				// Image field for the new post
 				type="file"
 				name="image_url"
-				accept="image/jpeg,image/png,image/gif"
+				accept="image/jpeg, image/png, image/gif"
 				onChange={handleImageChange}
 			/>
 			<div className="button-container">
 				<button className="button-post" onClick={handlePost}>
 					Post
 				</button>
+
 				<div className="button-post-back">
 					<button onClick={handleBack}>Back</button>
 				</div>
