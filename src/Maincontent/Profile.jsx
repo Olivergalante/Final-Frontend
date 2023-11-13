@@ -1,7 +1,6 @@
 // Profile.js Where the username and post button to the post page are displayed !
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import ExpandedPost from "./ExpandedPost";
 
 const Profile = () => {
 	const [userData, setUserData] = useState(null);

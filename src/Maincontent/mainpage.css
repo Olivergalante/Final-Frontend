@@ -17,7 +17,7 @@
   color: black;
   padding: 10px 16px;
   margin: 20px 0;
-  border-bottom: 3px solid #fafafa;
+  border-bottom: 3px solid black;
 }
 
 .post-card {
@@ -52,8 +52,8 @@
 }
 
 /* Style for the profile column (left side) !!! */
+
 .profile-container {
-  background-color: gray;
   position: fixed;
   top: 0;
   left: 0;
@@ -68,9 +68,7 @@
   text-align: center;
   border-right: black 2px solid;
   border-radius: 2px;
-  background-color: #f1356d;
-  position: static;
-
+  background-color: lightblue;
 }
 
 .post-blog-button {
@@ -103,7 +101,6 @@
 
 /* Style for the content column (right side/ Main page) !!! */
 .main-content-container {
-  background-color: #ffffff;
   margin-left: 250px;
   /* Adjust the margin to match the width of the profile column */
 }
@@ -114,7 +111,7 @@
 
 /* styles for the create a post page !!! */
 body {
-  background-color: #ffffff;
+
   /* Set your desired background color */
   font-family: Arial, sans-serif;
   /* Choose a suitable font */
