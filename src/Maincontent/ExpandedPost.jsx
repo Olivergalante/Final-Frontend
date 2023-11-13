@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 const ExpandedPost = () => {
 	const { postId } = useParams();
 	const [post, setPost] = useState(null);
 	const [isLoading, setIsLoading] = useState(true);
+	const navigate = useNavigate();
 
 	useEffect(() => {
 		// Fetch the specific post based on postId
@@ -22,6 +23,43 @@ const ExpandedPost = () => {
 
 		fetchPostById();
 	}, [postId]);
+
+	const handleDelete = () => {
+		const confirmDelete = window.confirm(
+			"Are you sure you want to delete this post?"
+		);
+
+		if (confirmDelete) {
+			// Set a loading state while the delete operation is in progress
+			setIsLoading(true);
+
+			// Make a DELETE request to your API endpoint
+			fetch(`http://127.0.0.1:8000/posts/${postId}`, {
+				method: "DELETE",
+			})
+				.then((response) => {
+					if (response.ok) {
+						navigate("/mainpage");
+						// Redirect back to the main page after successful deletion
+					} else {
+						console.error("Error deleting post");
+					}
+
+					// Reset loading state
+					setIsLoading(false);
+				})
+				.catch((error) => {
+					console.error("Error deleting post:", error);
+
+					// Reset loading state
+					setIsLoading(false);
+				});
+		}
+	};
+
+	const handleBack = () => {
+		navigate("/mainpage");
+	};
 
 	if (isLoading) {
 		return <p>Loading...</p>;
@@ -44,6 +82,8 @@ const ExpandedPost = () => {
 					<span>Date: {new Date(post.created_at).toLocaleDateString()}</span>
 				</div>
 			</div>
+			<button onClick={handleDelete}>Delete</button>
+			<button onClick={handleBack}>Back</button>
 		</div>
 	);
 };
