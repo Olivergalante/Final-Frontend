@@ -14,7 +14,7 @@
   align-items: center;
   width: 75%;
   background-color: white;
-  color: black;
+  color: black important !;
   padding: 10px 16px;
   margin: 20px 0;
   border-bottom: 3px solid black;
@@ -107,6 +107,7 @@
 
 .post-link {
   text-decoration: none;
+  color: black;
 }
 
 /* styles for the create a post page !!! */

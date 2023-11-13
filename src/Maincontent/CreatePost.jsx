@@ -31,7 +31,7 @@ const CreatePost = () => {
 		})
 			.then((response) => response.json())
 			.then((data) => {
-				navigate("/mainpage");
+				// navigate("/mainpage");
 			})
 			.catch((error) => {
 				console.error("Error:", error);
