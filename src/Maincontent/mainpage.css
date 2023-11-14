@@ -108,13 +108,14 @@
 .post-link {
   text-decoration: none;
   color: black;
+  margin-bottom: 20px
 }
 
-/* styles for the create a post page !!! */
+/* STYLES FOR CREATE POST PAGE  !!! */
 body {
 
   /* Set your desired background color */
-  font-family: Arial, sans-serif;
+  font-family: Arial, sans-serif, inherit;
   /* Choose a suitable font */
 }
 
@@ -129,6 +130,12 @@ body {
   color: #ffffff;
   padding: 10px;
   text-align: center;
+}
+
+.post-content-inputs {
+  width: 600px;
+  height: auto;
+  margin: 0 auto;
 }
 
 .form {
@@ -190,6 +197,7 @@ body {
 .post-image {
   height: 100px;
   width: 100px;
+  border-radius: 4px;
 }
 
 /* EXPANDED POST STYLES BELOW ! */
@@ -216,9 +224,16 @@ body {
   height: 300px;
   margin-bottom: 15px;
   /* Ensure the image doesn't exceed its natural size */
+  object-fit: cover;
 }
 
 .post-details {
   margin-top: 10px;
   /* Adjust the margin as needed */
+}
+
+/* PROFILE UPDATE PAGE STYLINGS */
+.update-profile-button .back-profile-update-button {
+  margin-bottom: 10px;
+
 }
