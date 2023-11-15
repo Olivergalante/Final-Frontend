@@ -8,12 +8,14 @@ const ExpandedPost = () => {
 	const navigate = useNavigate();
 
 	useEffect(() => {
-		// Fetch the specific post based on postId
-		const fetchPostById = async () => {
+		const fetchPost = async () => {
 			try {
-				const response = await fetch(`http://127.0.0.1:8000/posts/${postId}`);
-				const data = await response.json();
-				setPost(data);
+				const postResponse = await fetch(
+					`http://127.0.0.1:8000/posts/${postId}`
+				);
+				const postData = await postResponse.json();
+
+				setPost(postData);
 				setIsLoading(false);
 			} catch (error) {
 				console.error("Error fetching expanded post:", error);
@@ -21,40 +23,35 @@ const ExpandedPost = () => {
 			}
 		};
 
-		fetchPostById();
+		fetchPost(); // Call the function
 	}, [postId]);
 
 	const handleDelete = () => {
-		const confirmDelete = window.confirm(
-			"Are you sure you want to delete this post?"
-		);
+		const userId = localStorage.getItem("userId");
 
-		if (confirmDelete) {
-			// Set a loading state while the delete operation is in progress
-			setIsLoading(true);
-
-			// Make a DELETE request to your API endpoint
-			fetch(`http://127.0.0.1:8000/posts/${postId}`, {
-				method: "DELETE",
+		fetch(`http://127.0.0.1:8000/posts/${postId}`, {
+			method: "DELETE",
+			headers: {
+				Authorization: `Bearer ${userId}`, // Include authorization if required
+			},
+		})
+			.then((response) => {
+				if (response.ok) {
+					// Post deleted successfully, navigate back to mainpage
+					navigate("/mainpage");
+				} else {
+					// Handle error, for example, show an error message
+					console.error("Error deleting post:", response.statusText);
+				}
 			})
-				.then((response) => {
-					if (response.ok) {
-						navigate("/mainpage");
-						// Redirect back to the main page after successful deletion
-					} else {
-						console.error("Error deleting post");
-					}
+			.catch((error) => {
+				console.error("Error deleting post:", error);
+			});
+	};
 
-					// Reset loading state
-					setIsLoading(false);
-				})
-				.catch((error) => {
-					console.error("Error deleting post:", error);
-
-					// Reset loading state
-					setIsLoading(false);
-				});
-		}
+	const handleEdit = () => {
+		// Redirect to the edit page with the postId
+		navigate(`/posts/${postId}/edit`);
 	};
 
 	const handleBack = () => {
@@ -83,6 +80,7 @@ const ExpandedPost = () => {
 				</div>
 			</div>
 			<button onClick={handleDelete}>Delete</button>
+			<button onClick={handleEdit}>Edit</button>
 			<button onClick={handleBack}>Back</button>
 		</div>
 	);

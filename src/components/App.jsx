@@ -5,6 +5,7 @@ import { MainPage } from "../Maincontent/Mainpage";
 import { Errorpage } from "./Errorpage";
 import CreatePost from "../Maincontent/CreatePost";
 import ExpandedPost from "../Maincontent/ExpandedPost";
+import EditPost from "../Maincontent/EditPost"; // Import the EditPost component
 import NavBar from "../Maincontent/NavBar";
 import ProfilePage from "../Maincontent/ProfilePage";
 
@@ -18,6 +19,7 @@ export function App() {
 				<Route path="/createpost" element={<CreatePost />} />
 				<Route path="/errorpage" element={<Errorpage />} />
 				<Route path="/posts/:postId" element={<ExpandedPost />} />
+				<Route path="/posts/:postId/edit" element={<EditPost />} />
 				<Route path="/navbar" element={<NavBar />} />
 				<Route path="/profilepage" element={<ProfilePage />} />
 			</Routes>
