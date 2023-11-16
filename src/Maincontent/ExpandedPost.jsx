@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import NavBar from "./NavBar";
 
 const ExpandedPost = () => {
 	const { postId } = useParams();
@@ -31,9 +32,6 @@ const ExpandedPost = () => {
 
 		fetch(`http://127.0.0.1:8000/posts/${postId}`, {
 			method: "DELETE",
-			headers: {
-				Authorization: `Bearer ${userId}`, // Include authorization if required
-			},
 		})
 			.then((response) => {
 				if (response.ok) {
@@ -58,6 +56,20 @@ const ExpandedPost = () => {
 		navigate("/mainpage");
 	};
 
+	const handleUpdate = async () => {
+		try {
+			const updatedPostResponse = await fetch(
+				`http://127.0.0.1:8000/posts/${postId}`
+			);
+			const updatedPostData = await updatedPostResponse.json();
+
+			// Update the state with the new data
+			setPost(updatedPostData);
+		} catch (error) {
+			console.error("Error updating post:", error);
+		}
+	};
+
 	if (isLoading) {
 		return <p>Loading...</p>;
 	}
@@ -67,21 +79,26 @@ const ExpandedPost = () => {
 	}
 
 	return (
-		<div className="expanded-post-container">
-			<div className="expanded-post">
-				<h2>{post.title}</h2>
-				{post.image && (
-					<img src={post.image} alt={post.title} className="expanded-image" />
-				)}
-				<p>{post.content}</p>
-				<div className="post-details">
-					<span>{post.username} </span>
-					<span>Date: {new Date(post.created_at).toLocaleDateString()}</span>
+		<div>
+			<NavBar />
+			<div className="expanded-post-container">
+				<div className="expanded-post">
+					<h2>{post.title}</h2>
+					{post.image && (
+						<img src={post.image} alt={post.title} className="expanded-image" />
+					)}
+					<p>{post.content}</p>
+					<div className="post-details">
+						<span>{post.username} </span>
+						<span>Date: {new Date(post.created_at).toLocaleDateString()}</span>
+					</div>
+				</div>
+				<div className="expanded-post-buttons">
+					<button onClick={handleDelete}>Delete</button>
+					<button onClick={handleEdit}>Edit</button>
+					<button onClick={handleBack}>Back</button>
 				</div>
 			</div>
-			<button onClick={handleDelete}>Delete</button>
-			<button onClick={handleEdit}>Edit</button>
-			<button onClick={handleBack}>Back</button>
 		</div>
 	);
 };

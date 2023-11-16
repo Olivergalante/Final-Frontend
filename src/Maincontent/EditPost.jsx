@@ -33,16 +33,14 @@ const EditPost = () => {
 	const handleUpdate = () => {
 		const userId = localStorage.getItem("userId");
 
-		fetch(`http://127.0.0.1:8000/posts/${postId}`, {
+		const formData = new FormData();
+		formData.append("title", updatedTitle);
+		formData.append("content", updatedContent);
+		formData.append("author", userId); // Set the author field
+
+		fetch(`http://127.0.0.1:8000/posts/${postId}/`, {
 			method: "PUT",
-			headers: {
-				"Content-Type": "application/json",
-				Authorization: `Bearer ${userId}`, // Include authorization if required
-			},
-			body: JSON.stringify({
-				title: updatedTitle,
-				content: updatedContent,
-			}),
+			body: formData,
 		})
 			.then((response) => {
 				if (response.ok) {
@@ -73,22 +71,26 @@ const EditPost = () => {
 
 	return (
 		<div className="edit-post-container">
-			<h2>Edit Post</h2>
-			<label htmlFor="updatedTitle">Title:</label>
-			<input
-				type="text"
-				id="updatedTitle"
-				value={updatedTitle}
-				onChange={(e) => setUpdatedTitle(e.target.value)}
-			/>
-			<label htmlFor="updatedContent">Content:</label>
-			<textarea
-				id="updatedContent"
-				value={updatedContent}
-				onChange={(e) => setUpdatedContent(e.target.value)}
-			/>
-			<button onClick={handleUpdate}>Update</button>
-			<button onClick={handleCancel}>Cancel</button>
+			<div className="edit-post-container">
+				<h2>Edit Post</h2>
+				<label htmlFor="updatedTitle">Title:</label>
+				<input
+					type="text"
+					id="updatedTitle"
+					value={updatedTitle}
+					onChange={(e) => setUpdatedTitle(e.target.value)}
+				/>
+				<label htmlFor="updatedContent">Content:</label>
+				<textarea
+					id="updatedContent"
+					value={updatedContent}
+					onChange={(e) => setUpdatedContent(e.target.value)}
+				/>
+				<button className="editpost-update-button" onClick={handleUpdate}>
+					Update
+				</button>
+				<button onClick={handleCancel}>Cancel</button>
+			</div>
 		</div>
 	);
 };

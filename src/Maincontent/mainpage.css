@@ -105,6 +105,8 @@
   /* Adjust the margin to match the width of the profile column */
 }
 
+
+
 .post-link {
   text-decoration: none;
   color: black;
@@ -203,6 +205,7 @@ body {
 /* EXPANDED POST STYLES BELOW ! */
 .expanded-post-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
@@ -215,6 +218,7 @@ body {
   border-radius: 4px;
   width: 436px;
   cursor: pointer;
+  margin-bottom: 5px;
 }
 
 .expanded-image {
@@ -232,8 +236,80 @@ body {
   /* Adjust the margin as needed */
 }
 
+.expanded-post-buttons {
+  display: flex;
+  gap: 10px;
+}
+
 /* PROFILE UPDATE PAGE STYLINGS */
 .update-profile-button .back-profile-update-button {
   margin-bottom: 10px;
 
+}
+
+/* EDIT PAGE STYLES */
+.edit-post-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  width: 400px;
+  background-color: lightgray;
+  margin: 0 auto;
+  margin-top: 100px;
+}
+
+.editpost-update-button {
+  margin-bottom: 5px;
+}
+
+#updatedTitle,
+#updatedContent {
+  width: 200px;
+  height: 200px;
+  border-radius: 8px;
+}
+
+/* NAV BAR STYLES */
+/* NavBar.css */
+
+.navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #333;
+  /* Add your preferred background color */
+  color: white;
+  /* Add your preferred text color */
+}
+
+.search-bar {
+  width: 60%;
+  /* Adjust the width of the search bar as needed */
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 10px;
+  /* Adjust the gap between buttons as needed */
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: white;
+}
+
+.profile-page-content {
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  height: 400px;
+  width: 400px;
+  background-color: lightgray;
+  margin: 0 auto;
+  margin-top: 100px;
 }

@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import ExpandedPost from "./ExpandedPost";
+import NavBar from "./NavBar";
 
 function MainPage() {
 	const [posts, setPosts] = useState([]);
@@ -28,6 +29,7 @@ function MainPage() {
 	};
 	return (
 		<div className="blog-post-rendered">
+			<NavBar className="navbar-content-page" showFeatures={true} />
 			{isLoading ? (
 				<p>Loading...</p>
 			) : (

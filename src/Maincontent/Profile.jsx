@@ -41,7 +41,7 @@ const Profile = () => {
 				<div>
 					<h2>Profile Information</h2>
 					<Link to="/profilepage">
-						<button className="post-profile-button">Profile</button>
+						<button className="post-blog-button">Profile</button>
 					</Link>
 					<p>Bio: {bio}</p>
 					<p>Location: {location}</p>
