@@ -46,6 +46,9 @@ const Profile = () => {
 					<p>Bio: {bio}</p>
 					<p>Location: {location}</p>
 					<p>Birth Date: {birthDate}</p>
+					<Link to="/">
+						<button className="post-blog-button"> Logout </button>
+					</Link>
 				</div>
 			</div>
 		</div>
