@@ -20,6 +20,7 @@ const NavBar = ({ onSearch }) => {
 				<button onClick={handleSearch}>Search</button>
 			</div>
 			<div className="nav-buttons">
+				<h1>BikeOverFlow</h1>
 				<Link to="/mainpage">
 					<button>
 						<span role="img" aria-label="Home">
