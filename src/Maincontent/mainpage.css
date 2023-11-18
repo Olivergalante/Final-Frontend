@@ -292,7 +292,7 @@ body {
 
 .nav-buttons {
   display: flex;
-  gap: 10px;
+  gap: 9px;
   /* Adjust the gap between buttons as needed */
 }
 
